@@ -41,9 +41,27 @@ class TestCredantials(unittest.TestCase):
         test_credentials.save_credentals()
         self.assertEqual(len(Credantials.credential_list),2)
 
+
+#deleting credentials
+    def test_delete_credentials(self):
+        """
+        test to see if i can delete a credential
+        """
+        self.new_credentials.save_credentals()
+        test_credentials = Credantials("wyne","222")
+        test_credentials.save_credentals()
+        self.new_credentials.delete_credentials()
+        self.assertEqual(len(Credantials.credential_list),1)
+    def test_find_credential_by_name(self):
+        """
+        test to see if we can dinf contact by name and display the details
+        """
+        self.new_credentials.save_credentals()
+        test_credentials = Credantials("wyne","222")#add a new credential
+        test_credentials.save_credentals()
+
+        found_credentials = Credantials.find_by_name("wyne")
+
+        self.assertEqual(found_credentials.account_name,test_credentials.account_name)
 if __name__ == '__main__':
     unittest.main()
-
-#generating a random number
-    def test_password_generator(self):
-        self
