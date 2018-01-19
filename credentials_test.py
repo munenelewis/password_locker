@@ -44,12 +44,6 @@ class TestCredantials(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-#  def test_save_multiple_credentials(self):
-#         '''
-#          to check if we can save multiple contact
-#         objects to our credential_list
-#         '''
-#         self.new_credentials.save_credentals()
-#         test_credentials= Credantials("Test","user") # new contact
-#         test_credentials.save_credentals()
-#         self.assertEqual(len(Credantials.credential_list),2)
+#generating a random number
+    def test_password_generator(self):
+        self
