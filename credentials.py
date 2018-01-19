@@ -34,3 +34,10 @@ class Credantials :
                 return True
         return False
     
+    @classmethod
+    def display_credentials(cls):
+        """
+        displaying all contacts 
+
+        """
+        return cls.credential_list

@@ -75,6 +75,12 @@ class TestCredantials(unittest.TestCase):
 
          credentials_exist = Credantials.credentials_exist("wyne")
          self.assertTrue(credentials_exist)
+#display all contacts 
+    def test_display_all_credentials(self):
+        """
+        method to display all the contacts 
+        """
+        self.assertEqual(Credantials.display_credentials(),Credantials.credential_list)
 
 if __name__ == '__main__':
     unittest.main()
