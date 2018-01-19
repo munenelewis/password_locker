@@ -13,7 +13,7 @@ class TestCredantials(unittest.TestCase):
         """
         Credantials.credential_list=[]
 
-       
+#initialize       
     def test_init(self):
         
         '''

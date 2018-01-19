@@ -20,15 +20,11 @@ def delete_credentials():
 
 
 #saving credentials
-def save_credentials:
-    """
-    function for saving credentials
-    """
-    
-    credentials.save_credentials()
-
+def save_credential(credentials):
+    """function of  saving"""
+    credentials.save_credentals()
 #finding a contact 
-def find_credantials:
+def find_credantials(name):
     """
     finding credentials
     """
@@ -48,3 +44,32 @@ def display_credentials():
     """
 
     return Credantials.display_credentials()
+
+
+def main():
+    while True:
+        print("\n")
+        print('''                 ~~~~~~<<<~~~~~ welcome to password locker ~~~~~~~~>~~~~~\n\n \n \n ''')
+
+        print('''                 ^^^^^use the short codes^^^^^  \n \n \n
+         (cc) - create credentials\n
+         (dc) - display credentials \n
+         (ce) - check existing \n
+         (sc) - save credential \n
+         (dr) - delete credentials''')
+         
+        short_code = input().lower()
+
+        if short_code == 'cc':
+            print("create a user name...................\n ............")
+            created_user_name= input()
+
+            print("select a password")
+            created_password= input()
+
+            print ("confirm you password")
+            comfirm_password = input()
+
+if __name__ == '__main__':
+    
+    main()
