@@ -69,7 +69,20 @@ def main():
 
             print ("confirm you password")
             comfirm_password = input()
-
+        while created_password != comfirm_password:
+            print('''              #@#@#@#  error you password dont match    #@#@#@#  \n''')
+            print('''      please input your password again     \n''')
+            created_password = input()
+            print('''      comfirm  your password  ''')
+            comfirm_password = input()
+        else:
+            print (f"welcome {created_user_name} to our service i hope you enjoy ")
+            print("\n")
+            print("you can proceed to your account")
+            print("name")
+            entered_username= input()
+            print("password")
+            entered_password = input()
 if __name__ == '__main__':
     
     main()
