@@ -22,4 +22,15 @@ class Credantials :
         for credentials in cls.credential_list:
             if credentials.account_name == name:
                 return credentials
+
+    @classmethod
+    def credentials_exist(cls,name):
+        """
+        checking if the name exist
+
+        """
+        for credentials in cls.credential_list:
+            if credentials.account_name == name:
+                return True
+        return False
     

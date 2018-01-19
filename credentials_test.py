@@ -63,5 +63,18 @@ class TestCredantials(unittest.TestCase):
         found_credentials = Credantials.find_by_name("wyne")
 
         self.assertEqual(found_credentials.account_name,test_credentials.account_name)
+
+#test if the object really exist 
+    def test_credetials_exist(self):
+         """
+         to check if the credential really exist 
+         """
+         self.new_credentials.save_credentals()
+         test_credentials = Credantials("wyne","222")
+         test_credentials.save_credentals()
+
+         credentials_exist = Credantials.credentials_exist("wyne")
+         self.assertTrue(credentials_exist)
+
 if __name__ == '__main__':
     unittest.main()
