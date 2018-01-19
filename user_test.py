@@ -6,6 +6,13 @@ class TestUser(unittest.TestCase):
     def setUp(self):
         """run before the test"""
         self.new_user = User("lewis","munene","munenei")#create user object
+
+    def tearDown(self):
+        '''
+        it does clean up after very test
+        '''
+        User.user_list=[]
+
     def test_init(self):
         """test if initialized properly"""
 
