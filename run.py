@@ -83,6 +83,39 @@ def main():
             entered_username= input()
             print("password")
             entered_password = input()
+        while entered_username != created_user_name or entered_password != created_password:
+            print('''  /\/\/\/\/\/\  your pass word or username is incorect please check your credentials  /\/\/\/\/\/\/\  ''')
+            print ( " enter your user name ")
+            entered_username = input()
+            print(" enter your password ")
+            entered_password = input()
+        else:
+            print(f" welcome to your account ")
+            print("\n")
+            print("please choose what you would like to so in your account : ")
+            print("\n")
+            print('''                       (a) - delete account \n
+                      (b) - view your details \n
+                      (c) - Add new credentials    \n         
+                      (d) - search credentials\n
+                      (e) - log out      \n   ''')
+            option = input()
+
+            if option == 'a':
+                print('''  ------------ ARE YOU SURE YOU WANT TO DELETE YOUR ACCOUNT ?--------''')
+                print ('''                                      (y) - yes i want to delete my account \n
+                                      (n) - no i dont want ro delete my account \n ''')
+                choice = input().lower()
+                if choice == "n":
+                    
+                    continue
+            elif confirm == 'y':
+                 print("it sad to see you go -:) let me clear my notebook")
+                 break 
+                
+            else:
+                continue     
+            
 if __name__ == '__main__':
     
     main()
