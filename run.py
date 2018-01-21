@@ -77,7 +77,7 @@ def main():
                 print('''      comfirm  your password  ''')
                 comfirm_password = input()
             else:
-                print (f"welcome {created_user_name} to our service i hope you enjoy ")
+                print (f"welcome {created_user_name} to our service i hope you enjoy")
                 print("\n")
                 print("you can proceed to your account")
                 print("name")
@@ -182,22 +182,28 @@ def main():
                             break
                         else:
                             print("please use 'yes' or 'no' ")
-                if option == 'i':
-                    while true:
-                        print("search the credentilas you wish to delete")
-                        print(f"ACCOUNT NAME: {search_credantials.account_name} \n PASSWORD: {search_credentials.acount_password}" )
-                        print ("you sure you want to delete?  'yes' or 'no'\n")
+                elif option=="i":
+                    while True:
+                        print("do you wish to continue? 'y' or 'n'\n")
+                        con = input().lower()
+                        if con == "y":
+                            print("enter credentials you want to find \n")
 
-                        del = input().lowe() 
-                        if del == 'yes':
-                            delete_credentials(search_credentials)
+                            search_name = input()
 
-                            print("Account has been deleted")
+                            if check_existing(search_name):
+                                search_credential = find_credantials(search_name)
+                                print(f"Account name : {search_credential.account_name} \n Password: {search_credential.account_password}")
+                            else:
+                                print("contact doesnt exist")
+                        elif con=="n":
                             break
-                        elif del == 'no':
-                            continue
-                    else:
-                        print("That contact doesnt exist")
+                        else:
+                            print("please pick 'y' or 'no' ")
+        elif short_code == "ex":
+            break
+        else:
+            print("invalid code")
                                        
 if __name__ == '__main__':
     main()
