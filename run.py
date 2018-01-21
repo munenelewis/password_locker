@@ -200,6 +200,32 @@ def main():
                             break
                         else:
                             print("please pick 'y' or 'no' ")
+                elif option=="iv":
+                    while True:
+                        print ("search the credentials you want to delete")
+                        search_name = input()
+
+                        if check_existing(search_name):
+                            search_credential = find_credantials(search_name)
+                            print (f"ACCOUNT NAME : {seach_credential.account_name} \n PASSWORD: {search_credential.account_password}")
+                            print("delete credentials? abort or cont ")
+                            descion = input().lower()
+                            if descion == "cont":
+                                delete_credentials(search_credential)
+                                print("account has been deleted")
+                                break
+                            elif descion == "abort":
+                                continue
+                        else:
+                            print("That contact does not exist")
+                            break
+
+                                
+                    
+        
+        
+        
+        
         elif short_code == "ex":
             break
         else:
