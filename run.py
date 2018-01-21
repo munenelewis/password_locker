@@ -3,7 +3,7 @@ from credentials import Credantials
 from user import User
 
 #creating credetios
-def create_credentials():
+def create_credentials(account_name,account_password):
     """
     function to create new credentials
     """
@@ -11,12 +11,11 @@ def create_credentials():
     new_credentials = credentials(account_name,account_password)
     return new_credentials
 #deleting credentials
-def delete_credentials():
+def delete_credentials(credentials):
     """
     function of deleting credentials 
     """
-    credentials.delete_credentials()
-
+    Credantials.credential_list.remove(crede)
 
 
 #saving credentials
@@ -46,6 +45,7 @@ def display_credentials():
     return Credantials.display_credentials()
 
 
+
 def main():
     while True:
         print("\n")
@@ -55,8 +55,8 @@ def main():
          (cc) - create credentials\n
          (dc) - display credentials \n
          (ce) - check existing \n
-         (sc) - save credential \n
-         (dr) - delete credentials''')
+         (lg) - loging \n
+         (ex) - exit''')
          
         short_code = input().lower()
 
@@ -69,53 +69,66 @@ def main():
 
             print ("confirm you password")
             comfirm_password = input()
-        while created_password != comfirm_password:
-            print('''              #@#@#@#  error you password dont match    #@#@#@#  \n''')
-            print('''      please input your password again     \n''')
-            created_password = input()
-            print('''      comfirm  your password  ''')
-            comfirm_password = input()
-        else:
-            print (f"welcome {created_user_name} to our service i hope you enjoy ")
-            print("\n")
-            print("you can proceed to your account")
-            print("name")
-            entered_username= input()
-            print("password")
-            entered_password = input()
-        while entered_username != created_user_name or entered_password != created_password:
-            print('''  /\/\/\/\/\/\  your pass word or username is incorect please check your credentials  /\/\/\/\/\/\/\  ''')
-            print ( " enter your user name ")
-            entered_username = input()
-            print(" enter your password ")
-            entered_password = input()
-        else:
-            print(f" welcome to your account ")
-            print("\n")
-            print("please choose what you would like to so in your account : ")
-            print("\n")
-            print('''                       (a) - delete account \n
-                      (b) - view your details \n
-                      (c) - Add new credentials    \n         
-                      (d) - search credentials\n
-                      (e) - log out      \n   ''')
-            option = input()
-
-            if option == 'a':
-                print('''  ------------ ARE YOU SURE YOU WANT TO DELETE YOUR ACCOUNT ?--------''')
-                print ('''                                      (y) - yes i want to delete my account \n
-                                      (n) - no i dont want ro delete my account \n ''')
-                choice = input().lower()
-                if choice == "n":
-                    
-                    continue
-            elif confirm == 'y':
-                 print("it sad to see you go -:) let me clear my notebook")
-                 break 
-                
+            while created_password != comfirm_password:
+                print('''              #@#@#@#  error you password dont match    #@#@#@#  \n''')
+                print('''      please input your password again     \n''')
+                created_password = input()
+                print('''      comfirm  your password  ''')
+                comfirm_password = input()
             else:
-                continue     
-            
+                print (f"welcome {created_user_name} to our service i hope you enjoy ")
+                print("\n")
+                print("you can proceed to your account")
+                print("name")
+                entered_username= input()
+                print("password")
+                entered_password = input()
+            while entered_username != created_user_name or entered_password != created_password:
+                print('''  /\/\/\/\/\/\  your pass word or username is incorect please check your credentials  /\/\/\/\/\/\/\  ''')
+                print ( " enter your user name ")
+                entered_username = input()
+                print(" enter your password ")
+                entered_password = input()
+            else:
+                print(f" welcome to your account ")
+                print("\n")
+                print("please choose what you would like to so in your account : ")
+                print("\n")
+                print('''                       (a) - delete account \n
+                            (b) - view your details \n
+                            (c) - Add new credentials    \n         
+                            (d) - search credentials\n
+                            (e) - log out      \n   ''')
+                option = input()
+
+                if option == 'a':
+                    print('''  ------------ ARE YOU SURE YOU WANT TO DELETE YOUR ACCOUNT ?--------''')
+                    print ('''                                      (y) - yes i want to delete my account \n
+                                            (n) - no i dont want ro delete my account \n ''')
+                    choice = input().lower()
+                    if choice == "n":
+                        
+                        continue
+                elif confirm == 'c':
+                    print ("create user name")
+                    created_username = input()
+
+                    print("select password")
+                    selected_password = input()
+
+                    print("confrim password")
+                    comfirm_password = input()
+
+                else:
+                        continue     
+        elif short_code == 'lg':
+            print("welcome \n")
+            print("enter user name ........................")
+            default_user_name = input()
+
+            print("Enter your password ....................")
+            default_user_password = input()
+            print("\n")
+                  
 if __name__ == '__main__':
-    
     main()
