@@ -130,5 +130,25 @@ def main():
             default_user_password = input()
             print("\n")
                   
+
+            while default_user_password != '09876' or default_user_name != 'Testuser':
+                print ("wrong password. User name 'Testuser' and password '09876' ")
+                print("ENTER USER NAME \n")
+                default_user_name = input()
+
+                print("enter you password")
+                default_user_password = input()
+                print('\n')
+
+            if default_user_name=="Testuser" and default_user_password=="09876":
+                print("welcome to you account what would you like to do? /n")
+                print("select the options below to continue :")
+                print('''                          (i)- search credentials\n
+                          (ii) - add new credentials \n
+                          (iii) - view saved credentials \n
+                          (iv)- remove credentials \n
+                          (v) - logout ''')
+
+                print("\n")
 if __name__ == '__main__':
     main()
