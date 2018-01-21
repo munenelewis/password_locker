@@ -1,4 +1,5 @@
 #!/usr/bin/env python3.6
+import random
 from credentials import Credantials
 from user import User
 
@@ -8,7 +9,7 @@ def create_credentials(account_name,account_password):
     function to create new credentials
     """
 
-    new_credentials = credentials(account_name,account_password)
+    new_credentials = Credantials(account_name,account_password)
     return new_credentials
 #deleting credentials
 def delete_credentials(credentials):
@@ -148,7 +149,55 @@ def main():
                           (iii) - view saved credentials \n
                           (iv)- remove credentials \n
                           (v) - logout ''')
+                option = input()
 
-                print("\n")
+                if option == 'ii':
+                    while True:
+                        print("Do you still wanna add contacts ? yes or no?\n")
+
+                        choice =input().lower()
+                        if choice == 'yes':
+                            print ("enter the account name \n")
+                            account_name  = input()
+                            print("enter account password \n")
+                            print("to generate a random password password please type 'gen' to create your own password please type 'own'/n")
+                            pass_choice = input().lower()
+
+                            if pass_choice == 'gen':
+                                account_password = random.randint(1111, 1111)
+                                print(f" Account : {account_name} \n")
+                                print(f" Password : {account_password} ")
+                                print('\n')
+                            elif pass_choice =='own':
+                                print("create your own password \n")
+                                account_password = input()
+                                print (f" your account name is : {account_name} \n")
+                                print(f"you password is : {account_password} \n")
+                            else:
+                                print("enter a valid choice")
+
+                            save_credential(create_credentials(account_name, account_password))
+
+                        elif choice=='no':
+                            break
+                        else:
+                            print("please use 'yes' or 'no' ")
+                if option == 'i':
+                    while true:
+                        print("search the credentilas you wish to delete")
+                        print(f"ACCOUNT NAME: {search_credantials.account_name} \n PASSWORD: {search_credentials.acount_password}" )
+                        print ("you sure you want to delete?  'yes' or 'no'\n")
+
+                        del = input().lowe() 
+                        if del == 'yes':
+                            delete_credentials(search_credentials)
+
+                            print("Account has been deleted")
+                            break
+                        elif del == 'no':
+                            continue
+                    else:
+                        print("That contact doesnt exist")
+                                       
 if __name__ == '__main__':
     main()
