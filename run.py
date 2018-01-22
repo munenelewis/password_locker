@@ -324,8 +324,7 @@ def main():
                         break
                     else:
                         print("invalid choise")
-                        
-                        
+                                          
                                       
         elif short_code == "ex":
             break
