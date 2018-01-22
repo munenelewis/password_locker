@@ -54,8 +54,6 @@ def main():
 
         print('''                 ^^^^^use the short codes^^^^^  \n \n \n
          (cc) - create credentials\n
-         (dc) - display credentials \n
-         (ce) - check existing \n
          (lg) - loging \n
          (ex) - exit''')
          
@@ -251,7 +249,7 @@ def main():
                             else:
                                 print("enter a valid choice")
 
-                            save_credential(create_credentials(account_name, account_password))W
+                            save_credential(create_credentials(account_name, account_password))
                         elif choice=='no':
                             break
                         else:
