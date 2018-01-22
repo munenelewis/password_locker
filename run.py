@@ -122,7 +122,7 @@ def main():
                                 print(f"you password is : {account_password} \n")
                             else:
                                 print("enter a valid choice")
-                                save_credential(create_credentials(account_name, account_password))
+                                save_credentals(create_credentials(account_name, account_password))
                         elif choice=='no':
                                     continue
                         else:
@@ -169,7 +169,7 @@ def main():
                         if display_credentials():
                             
                             for credentials in  credential_list():
-                                print("ACCOUNT NAME : {credentials.account_name} \n ACCOUNT PASSWORD {credentials.account_password")
+                                print("ACCOUNT NAME :"+ {credentials.account_name}+" \n ACCOUNT PASSWORD"+ {credentials.account_password})
                         
                         else:
                             print("you havent saved any credentials yet \n")
