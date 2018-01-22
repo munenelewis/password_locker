@@ -251,8 +251,7 @@ def main():
                             else:
                                 print("enter a valid choice")
 
-                            save_credential(create_credentials(account_name, account_password))
-
+                            save_credential(create_credentials(account_name, account_password))W
                         elif choice=='no':
                             break
                         else:
