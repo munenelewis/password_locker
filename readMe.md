@@ -8,26 +8,10 @@ This is a python project where users can sign in , save there password  or delet
 
 if you want to use my project you can fork me in github or download it as a zip file it will work efficiently
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-for this projected to run or for you to be able to edit it you need to install the following:
-
-```python3.6 -> to get the latest npm install it using nvm by running the following commands
-```$ sudo add-apt-repository ppa:jonathonf/python-3.6
-```$ sudo apt-get update
-```$ sudo apt-get install python3.6
-```
-``` you also need angular pip
-```$ sudo apt-get install python3-pip 
-
-```also need to install a text editor more prefereably visual studio code
 
 ### Installing
 
 if you download the zip file just extract it and the app will work
-
 
 
 ## Running the tests
@@ -43,6 +27,23 @@ used python3.6
 ## Authors
 
 * **munene lewis** - *Initial work* - (https://github.com/munenelewis)
+
+
+
+### Prerequisites
+
+What things you need to install the software and how to install them
+
+for this projected to run or for you to be able to edit it you need to install the following
+
+```python3.6 -> to get the latest npm install it using nvm by running the following commands
+```$ sudo add-apt-repository ppa:jonathonf/python-3.6
+```$ sudo apt-get update
+```$ sudo apt-get install python3.6
+``` you also need angular pip
+```$ sudo apt-get install python3-pip 
+```also need to install a text editor more prefereably visual studio code
+
 
 
 
