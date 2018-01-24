@@ -37,12 +37,17 @@ What things you need to install the software and how to install them
 for this projected to run or for you to be able to edit it you need to install the following
 
 ``python3.6  to get the latest npm install it using nvm by running the following commands
-`` sudo add-apt-repository ppa:jonathonf/python-3.6
-`` sudo apt-get update
- ``sudo apt-get install python3.6
- ``you also need angular pip
- ``sudo apt-get install python3-pip 
-``also need to install a text editor more prefereably visual studio code
+```
+```
+```
+```
+```
+``` sudo add-apt-repository ppa:jonathonf/python-3.6
+``` sudo apt-get update
+ ```sudo apt-get install python3.6
+ ```you also need angular pip
+ ```sudo apt-get install python3-pip 
+```also need to install a text editor more prefereably visual studio code
 
 
 

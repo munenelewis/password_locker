@@ -122,9 +122,10 @@ def main():
                                 print(f"you password is : {account_password} \n")
                             else:
                                 print("enter a valid choice")
+
                                 save_credentals(create_credentials(account_name, account_password))
                         elif choice=='no':
-                                    continue
+                            break
                         else:
                             print("please use 'yes' or 'no' ")    
                 elif option=="i":
