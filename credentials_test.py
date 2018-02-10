@@ -1,86 +1,114 @@
+'''
+import uniittest to create uniittests for credential module
+import Password Locker Module to be tested (Credential in this case)
+'''
 import unittest
 from credentials import Credantials
 
-class TestCredantials(unittest.TestCase):
+class TestCredential(unittest.TestCase):
+    '''
+    Test class that defines test cases for the Credential Class behaviours
+
+    '''
     def setUp(self):
         '''
-        set up method to run before each test
+        Set up method to run before each test case
         '''
-        self.new_credentials = Credantials("munene","123") #create contact
+        # Create credential object
+        self.new_credential = Credantials("kim","Lewis","munene")
+
     def tearDown(self):
-        """
-        allow clean up after each test
-        """
-        Credantials.credential_list=[]
+        '''
+            tears down / cleans up data for every variable after the case tests are
+         over for each method
+        '''
+        Credantials.credential_list = []
 
-#initialize       
     def test_init(self):
-        
         '''
-        check if object is initialized propery
+            checks if the initialization of varaibles are handled properly
         '''
+        self.assertEqual( self.new_credential.user_password, "kim")
+        self.assertEqual( self.new_credential.account_name, "Lewis" )
+        self.assertEqual( self.new_credential.account_password, "munene" )
 
-        self.assertEqual(self.new_credentials.account_name,"munene")
-        self.assertEqual(self.new_credentials.account_password,"123")
+    def test_save_credential(self):
+        '''
+            test case to ensure credentials are saved
+        '''
+        # Save the new credential
+        self.new_credential.save_credentals()
 
-#test if you can save 
+        self.assertEqual( len(Credantials.credential_list), 2)
 
-    def test_save_credentals(self):
-        """test if the object has been saved into the contact list"""
-        self.new_credentials.save_credentals()#saving the contact
-        self.assertEqual(len(Credantials.credential_list),1)
-
-#test to see if you can save multiple credentials
     def test_save_multiple_credentials(self):
         '''
-        test multiple credentials 
+            test case to ensure multiple users are saved
         '''
+        # Save the new credential
+        self.new_credential.save_credentals()
 
-        self.new_credentials.save_credentals()
-        test_credentials = Credantials("wyne","222")
-        test_credentials.save_credentals()
-        self.assertEqual(len(Credantials.credential_list),2)
+        test_credential = Credantials("lewis","munene","123")
+
+        test_credential.save_credentals()
+
+        self.assertEqual( len(Credantials.credential_list), 4)
+
+    def test_gen_pass(self):
+        '''
+            test case to ensure random passwords are generated for credentials
+        '''
+        generated_password = self.new_credential.gen_pass()
+
+        self.assertEqual( len(generated_password), 8 )
+
+    def test_display_credential(self):
+        '''
+        test case for display credential method
+        '''
+        # Save the new credential
+        self.new_credential.save_credentals()
+
+        test_credential = Credantials("lewis","munene","123")
+
+        test_credential.save_credentals()
+
+        test_credential = Credantials("lewis","irimu","123")
+
+        test_credential.save_credentals()
+
+        self.assertEqual( len(Credantials.display_credential("lewis")) ,4 )
+
+    def test_delete_credential(self):
+        '''test if the delete method works'''
+        #self.new_credential.delete_credential()
+        test_credential = Credantials("ken","more","1234")#create a credential
+        test_credential.save_credentals()#save it
+        test_credential = Credantials("joe","brown","1234")#create anothercredential so that te list has two
+        test_credential.save_credentals()#save it as well
+
+        test_credential.delete_credentials()#delete one
+
+        self.assertEqual(len(Credantials.credential_list),3)# check if there is one remaining to confirm if the delete method works
 
 
-#deleting credentials
-    def test_delete_credentials(self):
-        """
-        test to see if i can delete a credential
-        """
-        self.new_credentials.save_credentals()
-        test_credentials = Credantials("wyne","222")
-        test_credentials.save_credentals()
-        self.new_credentials.delete_credentials()
-        self.assertEqual(len(Credantials.credential_list),1)
-    def test_find_credential_by_name(self):
-        """
-        test to see if we can dinf contact by name and display the details
-        """
-        self.new_credentials.save_credentals()
-        test_credentials = Credantials("wyne","222")#add a new credential
-        test_credentials.save_credentals()
 
-        found_credentials = Credantials.find_by_name("wyne")
+    def test_credential_exist(self):
+        '''
+        test case to ensure credentials in question exist
+        '''
+        # Save the new credential
+        self.new_credential.save_credentals()
 
-        self.assertEqual(found_credentials.account_name,test_credentials.account_name)
+        test_credential = Credantials("lewis","munene","123")
 
-#test if the object really exist 
-    def test_credetials_exist(self):
-         """
-         to check if the credential really exist 
-         """
-         self.new_credentials.save_credentals()
-         test_credentials = Credantials("wyne","222")
-         test_credentials.save_credentals()
+        test_credential.save_credentals()
 
-         credentials_exist = Credantials.credentials_exist("wyne")
-         self.assertTrue(credentials_exist)
-#display all contacts 
-    def test_display_all_credentials(self):
-        """
-        method to display all the contacts 
-        """
-        self.assertEqual(Credantials.display_credentials(),Credantials.credential_list)
+        # use contact exist method
+        credentials_exist = Credantials.credentials_exist("Lewis")
+
+        self.assertTrue(credentials_exist)
+
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)
